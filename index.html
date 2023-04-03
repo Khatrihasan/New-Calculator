@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="frame">
+                <div class="btn">
+                    <input type="text" id="inputtext" placeholder="0" />
+
+                    <button type="submit" onclick="calculate('+')" class="btnfn">+</button>
+                    <button type="submit" onclick="calculate(7)" class="btnfn">7</button>
+                    <button type="submit" onclick="calculate(8)" class="btnfn">8</button>
+                    <button type="submit" onclick="calculate(9)" class="btnfn">9</button>
+                    <button type="submit" onclick="calculate('-')" class="btnfn">-</button>
+                    <button type="submit" onclick="calculate(4)" class="btnfn">4</button>
+                    <button type="submit" onclick="calculate(5)" class="btnfn">5</button>
+                    <button type="submit" onclick="calculate(6)" class="btnfn">6</button>
+                    <button type="submit" onclick="calculate('*')" class="btnfn">*</button>
+                    <button type="submit" onclick="calculate(1)" class="btnfn">1</button>
+                    <button type="submit" onclick="calculate(2)" class="btnfn">2</button>
+                    <button type="submit" onclick="calculate(3)" class="btnfn">3</button>
+                    <button type="submit" onclick="calculate('/')" class="btnfn">/</button>
+                    <button type="submit" onclick="calculate('%')" class="btnfn">%</button>
+                    <button type="submit" onclick="calculate(0)" class="btnfn">0</button>
+                    <button type="submit" onclick="calculate('.')" class="btnfn">.</button>
+                    <!-- <button type="submit" onclick="Math.pow(number)" class="btnfn">x²</button> -->
+                    <button type="submit" onclick="clr()" class="btnfn">C</button>
+                    <button type="submit" onclick="del()" class="btnfn">DEL</button>
+                    <button type="submit" onclick="Back('←')" class="btnfn">←</button>
+
+                    <button type="submit" onclick="Result()" class="btnfn">=</button>
+
+                </div>
+            </div>
+    </div>
+</body>
+<script>
+    let result = document.getElementById("inputtext");
+    let calculate = (number) => {   //calculate = function(){}
+        result.value += number;
+
+    }
+    let Result = () => {
+
+        try {
+            result.value = eval(result.value)
+        }
+        catch (error) {
+            alert("Enter the valid input")
+        }
+    }
+    function clr() {
+        result.value = " ";
+    }
+    function del() {
+        result.value = result.value.slice(0, -1);
+    }
+    function Back() {
+        // var result = document.getElementById('res');
+        var ev = document.getElementById('inputtext');
+        ev.value = ev.value.slice(0,-1);
+    }
+</script>
+</html>
